@@ -1,4 +1,5 @@
 import sys
+import os
 
 from pydub import AudioSegment
 
@@ -22,14 +23,23 @@ if len(sys.argv) != 2:
 
 # get the input from the command line
 input_file_path = sys.argv[1]
-#  check the input file extension is .m4a
-extension = input_file_path.split(".")[-1]
-filename = input_file_path[:-(len(extension) + 1)]
-print(f'filename: {input_file_path}')
 
-if extension != "m4a":
+# Get the script directory (parent of src/)
+script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+audio_dir = os.path.join(script_dir, "audio_inputs")
+
+# Extract filename components
+basename = os.path.basename(input_file_path)
+name_without_ext = os.path.splitext(basename)[0]
+extension = os.path.splitext(basename)[1].lower()
+
+print(f'Processing: {basename}')
+
+if extension != ".m4a":
     print("Error: input file must be a .m4a file")
     sys.exit()
 else:
-    output_file_path = f"{filename}.wav"
+    # Create output path in audio_inputs directory
+    output_file_path = os.path.join(audio_dir, f"{name_without_ext}.wav")
     convert_m4a_to_wav(input_file_path, output_file_path)
+    print(f'Converted to: {output_file_path}')

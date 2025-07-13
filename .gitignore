@@ -1,29 +1,47 @@
-# Media files
-*.mp4
-*.m4a
-*.wav
-*.mp3
+# Audio files in audio_inputs directory
+audio_inputs/*.m4a
+audio_inputs/*.wav
+audio_inputs/*.mp3
+audio_inputs/*.mp4
 
-# Transcription output files
-*.txt
+# Transcription files in transcriptions directory
+transcriptions/*.txt
 
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
+.Python
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
 
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
 
 # macOS
 .DS_Store
+.AppleDouble
+.LSOverride
 
 # Sensitive files
 llm_api_token.py
+*.env
+.env.local
 
 # Dependencies
 /whisper.cpp
 
 # Temporary directories
 tempDir/
+temp/
+tmp/
+
+# Logs
+*.log
