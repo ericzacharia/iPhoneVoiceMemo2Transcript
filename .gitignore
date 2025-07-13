@@ -1,0 +1,29 @@
+# Media files
+*.mp4
+*.m4a
+*.wav
+*.mp3
+
+# Transcription output files
+*.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Sensitive files
+llm_api_token.py
+
+# Dependencies
+/whisper.cpp
+
+# Temporary directories
+tempDir/
